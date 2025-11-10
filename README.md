@@ -24,3 +24,20 @@ BuildContext adalaha pegangan atau handle ke lokasi widget tertentu dalam widget
 
 6. Jelaskan konsep "hot reload" di Flutter dan bagaimana bedanya dengan "hot restart".
 Hot reload memungkinkan Anda memasukkan perubahan kode sumber ke dalam aplikasi yang sedang berjalan tanpa perlu merestart aplikasi atau kehilangan state aplikasi saat ini. Bedanya dengan hot restart adalah hot restart berfokus pada pemuatan ulang aplikasi secara menyeluruh dan mengatur ulang state, sedangkan hot reload berfokus pada kecepatan dan mempertahankan state saat ini.
+
+Tugas 8
+1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+push() menambahkan suatu route ke dalam stack route yang dikelola oleh Navigator. Method ini menyebabkan route yang ditambahkan berada pada paling atas stack, sehingga route yang baru saja ditambahkan tersebut akan muncul dan ditampilkan kepada pengguna. Sedangkan pushReplacement() menghapus route yang sedang ditampilkan kepada pengguna dan menggantinya dengan suatu route. Method ini menyebabkan aplikasi untuk berpindah dari route yang sedang ditampilkan kepada pengguna ke suatu route yang diberikan. Pada stack route yang dikelola Navigator, route lama pada atas stack akan digantikan secara langsung oleh route baru yang diberikan tanpa mengubah kondisi elemen stack yang berada di bawahnya.
+Saat pengguna sedang mencari-cari barang yang dibutuhkan, untuk pindah page misalnya dari page all product ke my product atau detail product sebaiknya menggunakan push karena pengguna dapat kembali ke halaman sebelumnya (tidak direplace).
+Saat pengguna ingin membeli suatu barang, sebaiknya menggunakkan pushReplacement saat mengalihkannya ke page pembayaran berhasil, karena jika menggunakan push memungkinakn terjadinya pembayaran yang mengganda.
+
+2. Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+Saya sendiri memanfaatkannya seperti sebuah template dimana Scaffold sebagai template utama, AppBar sebagai properti Scaffold dan Drawer sebagai menu navigasi utama yang diatur oleh Scaffold.
+
+3. Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+Padding memberi jarak visual antar elemen, dimana tanpa padding form akan terlihat tidak teratur. Contohnya pada form saya, saya menggunakan padding di setiap field agar tampilan setiap field tidak saling menempel satu sama lain.
+SingleChildScrollView membungkus field-field yang ada sehingga tidak memunculkan error overflow saat mengisinya. Contohnya saya membungkus field dari form add product dengan SingleChildScrollView sehingga dapat di scroll.
+ListView memiliki keunggulan melalui constructor ListView.builder yang digunakan saat kita memiliki list konten yang jumlahnya tidak pasti atau sangat banyak. ListView.builder jauh lebih efisien karena ia hanya me-render item yang terlihat di layar. Contoh penggunaannya ada pada drawer app saya.
+
+4. Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+Saya sendiri menyesuaikannya di file main.dart yang mana pada materialapp nya saya membuat ColorSchemenya orange yang membuat widget-widget di halaman lain secara otomatis menampilkan warna utama yaitu warna orange. 
