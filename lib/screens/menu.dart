@@ -12,6 +12,7 @@ class MyHomePage extends StatelessWidget {
     ItemHomepage("All Product", Icons.storefront, Colors.blue),
     ItemHomepage("My Product", Icons.shopping_bag, Colors.green),
     ItemHomepage("Add Product", Icons.add, Colors.red),
+    ItemHomepage("Logout", Icons.logout, Colors.grey)
   ];
   @override
   Widget build(BuildContext context) {
