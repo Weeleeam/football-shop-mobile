@@ -9,14 +9,18 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class ProductEntryListPage extends StatefulWidget {
-  const ProductEntryListPage({super.key});
+  final bool filterByUser;
+  const ProductEntryListPage({super.key, this.filterByUser = false});
 
   @override
-  State<ProductEntryListPage> createState() => _ProductEntryListPageState();
+  State<ProductEntryListPage> createState() => _ProductEntryListPageState(initialFilter: filterByUser);
 }
 
 class _ProductEntryListPageState extends State<ProductEntryListPage> {
-  bool _showMyProduct = false; // state untuk toggle filter
+  bool _showMyProduct = false; 
+
+  _ProductEntryListPageState({required bool initialFilter})
+      : _showMyProduct = initialFilter;
 
   Future<List<ProductEntry>> fetchProduct(CookieRequest request) async {
     // TODO: Replace the URL with your app's URL and don't forget to add a trailing slash (/)!
